@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ '編輯日記' if diary else '新增日記' }}</h2>
+<form method="POST">
+    <label>日期：</label>
+    <input type="date" name="date" value="{{ diary[1] if diary else '' }}"><br>
+
+    <label>標題：</label>
+    <input type="text" name="title" value="{{ diary[2] if diary else '' }}" required><br>
+
+    <label>內容：</label><br>
+    <textarea name="content" rows="10" cols="50" required>{{ diary[3] if diary else '' }}</textarea><br>
+
+    <button type="submit">儲存</button>
+    <a href="{{ url_for('index') }}">取消</a>
+</form>
+{% endblock %}

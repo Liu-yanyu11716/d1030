@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ diary[2] }}</h2>
+<p><em>{{ diary[1] }}</em></p>
+<pre>{{ diary[3] }}</pre>
+
+<a href="{{ url_for('edit', diary_id=diary[0]) }}">✏️ 編輯</a> |
+<a href="{{ url_for('delete', diary_id=diary[0]) }}" onclick="return confirm('確定要刪除嗎？');">🗑️ 刪除</a> |
+<a href="{{ url_for('index') }}">返回</a>
+{% endblock %}

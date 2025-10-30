@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST">
+    <input type="text" name="keyword" placeholder="搜尋日記...">
+    <button type="submit">搜尋</button>
+</form>
+
+<ul>
+{% for id, date, title in diaries %}
+    <li>
+        <a href="{{ url_for('view', diary_id=id) }}">{{ date }} — {{ title }}</a>
+    </li>
+{% else %}
+    <li>目前沒有日記</li>
+{% endfor %}
+</ul>
+{% endblock %}
